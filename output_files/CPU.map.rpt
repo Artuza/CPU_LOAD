@@ -1,0 +1,422 @@
+Analysis & Synthesis report for CPU
+Wed May 29 20:06:04 2024
+Quartus Prime Version 20.1.0 Build 711 06/05/2020 SJ Lite Edition
+
+
+---------------------
+; Table of Contents ;
+---------------------
+  1. Legal Notice
+  2. Analysis & Synthesis Summary
+  3. Analysis & Synthesis Settings
+  4. Parallel Compilation
+  5. Analysis & Synthesis Source Files Read
+  6. Analysis & Synthesis Resource Usage Summary
+  7. Analysis & Synthesis Resource Utilization by Entity
+  8. General Register Statistics
+  9. Port Connectivity Checks: "ForwardingUnit:FU"
+ 10. Port Connectivity Checks: "DataMemory:DM"
+ 11. Port Connectivity Checks: "alu:my_alu|multiplier_32bit:muler"
+ 12. Port Connectivity Checks: "alu:my_alu"
+ 13. Post-Synthesis Netlist Statistics for Top Partition
+ 14. Elapsed Time Per Partition
+ 15. Analysis & Synthesis Messages
+ 16. Analysis & Synthesis Suppressed Messages
+
+
+
+----------------
+; Legal Notice ;
+----------------
+Copyright (C) 2020  Intel Corporation. All rights reserved.
+Your use of Intel Corporation's design tools, logic functions 
+and other software and tools, and any partner logic 
+functions, and any output files from any of the foregoing 
+(including device programming or simulation files), and any 
+associated documentation or information are expressly subject 
+to the terms and conditions of the Intel Program License 
+Subscription Agreement, the Intel Quartus Prime License Agreement,
+the Intel FPGA IP License Agreement, or other applicable license
+agreement, including, without limitation, that your use is for
+the sole purpose of programming logic devices manufactured by
+Intel and sold by Intel or its authorized distributors.  Please
+refer to the applicable agreement for further details, at
+https://fpgasoftware.intel.com/eula.
+
+
+
++----------------------------------------------------------------------------------+
+; Analysis & Synthesis Summary                                                     ;
++------------------------------------+---------------------------------------------+
+; Analysis & Synthesis Status        ; Successful - Wed May 29 20:06:04 2024       ;
+; Quartus Prime Version              ; 20.1.0 Build 711 06/05/2020 SJ Lite Edition ;
+; Revision Name                      ; CPU                                         ;
+; Top-level Entity Name              ; MCU                                         ;
+; Family                             ; MAX 10                                      ;
+; Total logic elements               ; 0                                           ;
+;     Total combinational functions  ; 0                                           ;
+;     Dedicated logic registers      ; 0                                           ;
+; Total registers                    ; 0                                           ;
+; Total pins                         ; 2                                           ;
+; Total virtual pins                 ; 0                                           ;
+; Total memory bits                  ; 0                                           ;
+; Embedded Multiplier 9-bit elements ; 0                                           ;
+; Total PLLs                         ; 0                                           ;
+; UFM blocks                         ; 0                                           ;
+; ADC blocks                         ; 0                                           ;
++------------------------------------+---------------------------------------------+
+
+
++------------------------------------------------------------------------------------------------------------+
+; Analysis & Synthesis Settings                                                                              ;
++------------------------------------------------------------------+--------------------+--------------------+
+; Option                                                           ; Setting            ; Default Value      ;
++------------------------------------------------------------------+--------------------+--------------------+
+; Device                                                           ; 10M50DAF484C7G     ;                    ;
+; Top-level entity name                                            ; MCU                ; CPU                ;
+; Family name                                                      ; MAX 10             ; Cyclone V          ;
+; Use smart compilation                                            ; Off                ; Off                ;
+; Enable parallel Assembler and Timing Analyzer during compilation ; On                 ; On                 ;
+; Enable compact report table                                      ; Off                ; Off                ;
+; Restructure Multiplexers                                         ; Auto               ; Auto               ;
+; Create Debugging Nodes for IP Cores                              ; Off                ; Off                ;
+; Preserve fewer node names                                        ; On                 ; On                 ;
+; Intel FPGA IP Evaluation Mode                                    ; Enable             ; Enable             ;
+; Verilog Version                                                  ; Verilog_2001       ; Verilog_2001       ;
+; VHDL Version                                                     ; VHDL_1993          ; VHDL_1993          ;
+; State Machine Processing                                         ; Auto               ; Auto               ;
+; Safe State Machine                                               ; Off                ; Off                ;
+; Extract Verilog State Machines                                   ; On                 ; On                 ;
+; Extract VHDL State Machines                                      ; On                 ; On                 ;
+; Ignore Verilog initial constructs                                ; Off                ; Off                ;
+; Iteration limit for constant Verilog loops                       ; 5000               ; 5000               ;
+; Iteration limit for non-constant Verilog loops                   ; 250                ; 250                ;
+; Add Pass-Through Logic to Inferred RAMs                          ; On                 ; On                 ;
+; Infer RAMs from Raw Logic                                        ; On                 ; On                 ;
+; Parallel Synthesis                                               ; On                 ; On                 ;
+; DSP Block Balancing                                              ; Auto               ; Auto               ;
+; NOT Gate Push-Back                                               ; On                 ; On                 ;
+; Power-Up Don't Care                                              ; On                 ; On                 ;
+; Remove Redundant Logic Cells                                     ; Off                ; Off                ;
+; Remove Duplicate Registers                                       ; On                 ; On                 ;
+; Ignore CARRY Buffers                                             ; Off                ; Off                ;
+; Ignore CASCADE Buffers                                           ; Off                ; Off                ;
+; Ignore GLOBAL Buffers                                            ; Off                ; Off                ;
+; Ignore ROW GLOBAL Buffers                                        ; Off                ; Off                ;
+; Ignore LCELL Buffers                                             ; Off                ; Off                ;
+; Ignore SOFT Buffers                                              ; On                 ; On                 ;
+; Limit AHDL Integers to 32 Bits                                   ; Off                ; Off                ;
+; Optimization Technique                                           ; Balanced           ; Balanced           ;
+; Carry Chain Length                                               ; 70                 ; 70                 ;
+; Auto Carry Chains                                                ; On                 ; On                 ;
+; Auto Open-Drain Pins                                             ; On                 ; On                 ;
+; Perform WYSIWYG Primitive Resynthesis                            ; Off                ; Off                ;
+; Auto ROM Replacement                                             ; On                 ; On                 ;
+; Auto RAM Replacement                                             ; On                 ; On                 ;
+; Auto DSP Block Replacement                                       ; On                 ; On                 ;
+; Auto Shift Register Replacement                                  ; Auto               ; Auto               ;
+; Allow Shift Register Merging across Hierarchies                  ; Auto               ; Auto               ;
+; Auto Clock Enable Replacement                                    ; On                 ; On                 ;
+; Strict RAM Replacement                                           ; Off                ; Off                ;
+; Allow Synchronous Control Signals                                ; On                 ; On                 ;
+; Force Use of Synchronous Clear Signals                           ; Off                ; Off                ;
+; Auto RAM Block Balancing                                         ; On                 ; On                 ;
+; Auto RAM to Logic Cell Conversion                                ; Off                ; Off                ;
+; Auto Resource Sharing                                            ; Off                ; Off                ;
+; Allow Any RAM Size For Recognition                               ; Off                ; Off                ;
+; Allow Any ROM Size For Recognition                               ; Off                ; Off                ;
+; Allow Any Shift Register Size For Recognition                    ; Off                ; Off                ;
+; Use LogicLock Constraints during Resource Balancing              ; On                 ; On                 ;
+; Ignore translate_off and synthesis_off directives                ; Off                ; Off                ;
+; Timing-Driven Synthesis                                          ; On                 ; On                 ;
+; Report Parameter Settings                                        ; On                 ; On                 ;
+; Report Source Assignments                                        ; On                 ; On                 ;
+; Report Connectivity Checks                                       ; On                 ; On                 ;
+; Ignore Maximum Fan-Out Assignments                               ; Off                ; Off                ;
+; Synchronization Register Chain Length                            ; 2                  ; 2                  ;
+; Power Optimization During Synthesis                              ; Normal compilation ; Normal compilation ;
+; HDL message level                                                ; Level2             ; Level2             ;
+; Suppress Register Optimization Related Messages                  ; Off                ; Off                ;
+; Number of Removed Registers Reported in Synthesis Report         ; 5000               ; 5000               ;
+; Number of Swept Nodes Reported in Synthesis Report               ; 5000               ; 5000               ;
+; Number of Inverted Registers Reported in Synthesis Report        ; 100                ; 100                ;
+; Clock MUX Protection                                             ; On                 ; On                 ;
+; Auto Gated Clock Conversion                                      ; Off                ; Off                ;
+; Block Design Naming                                              ; Auto               ; Auto               ;
+; SDC constraint protection                                        ; Off                ; Off                ;
+; Synthesis Effort                                                 ; Auto               ; Auto               ;
+; Shift Register Replacement - Allow Asynchronous Clear Signal     ; On                 ; On                 ;
+; Pre-Mapping Resynthesis Optimization                             ; Off                ; Off                ;
+; Analysis & Synthesis Message Level                               ; Medium             ; Medium             ;
+; Disable Register Merging Across Hierarchies                      ; Auto               ; Auto               ;
+; Resource Aware Inference For Block RAM                           ; On                 ; On                 ;
++------------------------------------------------------------------+--------------------+--------------------+
+
+
++------------------------------------------+
+; Parallel Compilation                     ;
++----------------------------+-------------+
+; Processors                 ; Number      ;
++----------------------------+-------------+
+; Number detected on machine ; 12          ;
+; Maximum allowed            ; 12          ;
+;                            ;             ;
+; Average used               ; 1.00        ;
+; Maximum used               ; 1           ;
+;                            ;             ;
+; Usage by Processor         ; % Time Used ;
+;     Processor 1            ; 100.0%      ;
++----------------------------+-------------+
+
+
++-----------------------------------------------------------------------------------------------------------------------+
+; Analysis & Synthesis Source Files Read                                                                                ;
++----------------------------------+-----------------+------------------------+-------------------------------+---------+
+; File Name with User-Entered Path ; Used in Netlist ; File Type              ; File Name with Absolute Path  ; Library ;
++----------------------------------+-----------------+------------------------+-------------------------------+---------+
+; orrs_32bit.v                     ; yes             ; User Verilog HDL File  ; D:/CPU/orrs_32bit.v           ;         ;
+; or_gate.v                        ; yes             ; User Verilog HDL File  ; D:/CPU/or_gate.v              ;         ;
+; multiplier_32bit.v               ; yes             ; User Verilog HDL File  ; D:/CPU/multiplier_32bit.v     ;         ;
+; full_adder.v                     ; yes             ; User Verilog HDL File  ; D:/CPU/full_adder.v           ;         ;
+; ands_32bit.v                     ; yes             ; User Verilog HDL File  ; D:/CPU/ands_32bit.v           ;         ;
+; and_gate.v                       ; yes             ; User Verilog HDL File  ; D:/CPU/and_gate.v             ;         ;
+; add_with_carry_32bit.v           ; yes             ; User Verilog HDL File  ; D:/CPU/add_with_carry_32bit.v ;         ;
+; ProgramCounter.v                 ; yes             ; User Verilog HDL File  ; D:/CPU/ProgramCounter.v       ;         ;
+; ProgramROM.v                     ; yes             ; User Verilog HDL File  ; D:/CPU/ProgramROM.v           ;         ;
+; RegisterFile.v                   ; yes             ; User Verilog HDL File  ; D:/CPU/RegisterFile.v         ;         ;
+; ALU.v                            ; yes             ; User Verilog HDL File  ; D:/CPU/ALU.v                  ;         ;
+; ForwardingUnit.v                 ; yes             ; User Verilog HDL File  ; D:/CPU/ForwardingUnit.v       ;         ;
+; MCU.v                            ; yes             ; User Verilog HDL File  ; D:/CPU/MCU.v                  ;         ;
+; DataMemory.v                     ; yes             ; User Verilog HDL File  ; D:/CPU/DataMemory.v           ;         ;
+; rsbs_32bit.v                     ; yes             ; User Verilog HDL File  ; D:/CPU/rsbs_32bit.v           ;         ;
+; subtractor_32bit.v               ; yes             ; User Verilog HDL File  ; D:/CPU/subtractor_32bit.v     ;         ;
++----------------------------------+-----------------+------------------------+-------------------------------+---------+
+
+
++-----------------------------------------------------+
+; Analysis & Synthesis Resource Usage Summary         ;
++---------------------------------------------+-------+
+; Resource                                    ; Usage ;
++---------------------------------------------+-------+
+;                                             ;       ;
+; Total combinational functions               ; 0     ;
+; Logic element usage by number of LUT inputs ;       ;
+;     -- 4 input functions                    ; 0     ;
+;     -- 3 input functions                    ; 0     ;
+;     -- <=2 input functions                  ; 0     ;
+;                                             ;       ;
+; Logic elements by mode                      ;       ;
+;     -- normal mode                          ; 0     ;
+;     -- arithmetic mode                      ; 0     ;
+;                                             ;       ;
+; Total registers                             ; 0     ;
+;     -- Dedicated logic registers            ; 0     ;
+;     -- I/O registers                        ; 0     ;
+;                                             ;       ;
+; I/O pins                                    ; 2     ;
+;                                             ;       ;
+; Embedded Multiplier 9-bit elements          ; 0     ;
+;                                             ;       ;
+; Maximum fan-out node                        ; clk   ;
+; Maximum fan-out                             ; 1     ;
+; Total fan-out                               ; 2     ;
+; Average fan-out                             ; 0.50  ;
++---------------------------------------------+-------+
+
+
++------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Analysis & Synthesis Resource Utilization by Entity                                                                                                                                                                                ;
++----------------------------+---------------------+---------------------------+-------------+------------+--------------+---------+-----------+------+--------------+------------+---------------------+-------------+--------------+
+; Compilation Hierarchy Node ; Combinational ALUTs ; Dedicated Logic Registers ; Memory Bits ; UFM Blocks ; DSP Elements ; DSP 9x9 ; DSP 18x18 ; Pins ; Virtual Pins ; ADC blocks ; Full Hierarchy Name ; Entity Name ; Library Name ;
++----------------------------+---------------------+---------------------------+-------------+------------+--------------+---------+-----------+------+--------------+------------+---------------------+-------------+--------------+
+; |MCU                       ; 0 (0)               ; 0 (0)                     ; 0           ; 0          ; 0            ; 0       ; 0         ; 2    ; 0            ; 0          ; |MCU                ; MCU         ; work         ;
++----------------------------+---------------------+---------------------------+-------------+------------+--------------+---------+-----------+------+--------------+------------+---------------------+-------------+--------------+
+Note: For table entries with two numbers listed, the numbers in parentheses indicate the number of resources of the given type used by the specific entity alone. The numbers listed outside of parentheses indicate the total resources of the given type used by the specific entity and all of its sub-entities in the hierarchy.
+
+
++------------------------------------------------------+
+; General Register Statistics                          ;
++----------------------------------------------+-------+
+; Statistic                                    ; Value ;
++----------------------------------------------+-------+
+; Total registers                              ; 0     ;
+; Number of registers using Synchronous Clear  ; 0     ;
+; Number of registers using Synchronous Load   ; 0     ;
+; Number of registers using Asynchronous Clear ; 0     ;
+; Number of registers using Asynchronous Load  ; 0     ;
+; Number of registers using Clock Enable       ; 0     ;
+; Number of registers using Preset             ; 0     ;
++----------------------------------------------+-------+
+
+
++------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Port Connectivity Checks: "ForwardingUnit:FU"                                                                                                                                            ;
++---------------+-------+----------+-------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Port          ; Type  ; Severity ; Details                                                                                                                                               ;
++---------------+-------+----------+-------------------------------------------------------------------------------------------------------------------------------------------------------+
+; ex_mem_reg_rd ; Input ; Warning  ; Input port expression (1 bits) is smaller than the input port (5 bits) it drives.  Extra input bit(s) "ex_mem_reg_rd[4..1]" will be connected to GND. ;
+; mem_wb_reg_rd ; Input ; Warning  ; Input port expression (1 bits) is smaller than the input port (5 bits) it drives.  Extra input bit(s) "mem_wb_reg_rd[4..1]" will be connected to GND. ;
++---------------+-------+----------+-------------------------------------------------------------------------------------------------------------------------------------------------------+
+
+
++---------------------------------------------+
+; Port Connectivity Checks: "DataMemory:DM"   ;
++-----------+-------+----------+--------------+
+; Port      ; Type  ; Severity ; Details      ;
++-----------+-------+----------+--------------+
+; mem_write ; Input ; Info     ; Stuck at GND ;
++-----------+-------+----------+--------------+
+
+
++---------------------------------------------------------------------------------------------------------------------------+
+; Port Connectivity Checks: "alu:my_alu|multiplier_32bit:muler"                                                             ;
++-----------------+--------+----------+-------------------------------------------------------------------------------------+
+; Port            ; Type   ; Severity ; Details                                                                             ;
++-----------------+--------+----------+-------------------------------------------------------------------------------------+
+; product[63..32] ; Output ; Info     ; Connected to dangling logic. Logic that only feeds a dangling port will be removed. ;
++-----------------+--------+----------+-------------------------------------------------------------------------------------+
+
+
++------------------------------------------------------------------------------------------------------------------------+
+; Port Connectivity Checks: "alu:my_alu"                                                                                 ;
++--------------+--------+----------+-------------------------------------------------------------------------------------+
+; Port         ; Type   ; Severity ; Details                                                                             ;
++--------------+--------+----------+-------------------------------------------------------------------------------------+
+; cin          ; Input  ; Info     ; Stuck at GND                                                                        ;
+; opcode       ; Input  ; Info     ; Stuck at GND                                                                        ;
+; cout         ; Output ; Info     ; Connected to dangling logic. Logic that only feeds a dangling port will be removed. ;
+; NegativeFlag ; Output ; Info     ; Connected to dangling logic. Logic that only feeds a dangling port will be removed. ;
+; ZeroFlag     ; Output ; Info     ; Connected to dangling logic. Logic that only feeds a dangling port will be removed. ;
++--------------+--------+----------+-------------------------------------------------------------------------------------+
+
+
++-----------------------------------------------------+
+; Post-Synthesis Netlist Statistics for Top Partition ;
++-------------------+---------------------------------+
+; Type              ; Count                           ;
++-------------------+---------------------------------+
+; boundary_port     ; 2                               ;
+;                   ;                                 ;
+; Max LUT depth     ; 0.00                            ;
+; Average LUT depth ; 0.00                            ;
++-------------------+---------------------------------+
+
+
++-------------------------------+
+; Elapsed Time Per Partition    ;
++----------------+--------------+
+; Partition Name ; Elapsed Time ;
++----------------+--------------+
+; Top            ; 00:00:00     ;
++----------------+--------------+
+
+
++-------------------------------+
+; Analysis & Synthesis Messages ;
++-------------------------------+
+Info: *******************************************************************
+Info: Running Quartus Prime Analysis & Synthesis
+    Info: Version 20.1.0 Build 711 06/05/2020 SJ Lite Edition
+    Info: Processing started: Wed May 29 20:05:48 2024
+Info: Command: quartus_map --read_settings_files=on --write_settings_files=off CPU -c CPU
+Warning (18236): Number of processors has not been specified which may cause overloading on shared machines.  Set the global assignment NUM_PARALLEL_PROCESSORS in your QSF to an appropriate value for best performance.
+Info (20030): Parallel compilation is enabled and will use 12 of the 12 processors detected
+Info (12021): Found 1 design units, including 1 entities, in source file orrs_32bit.v
+    Info (12023): Found entity 1: orrs_32bit File: D:/CPU/orrs_32bit.v Line: 1
+Info (12021): Found 1 design units, including 1 entities, in source file or_gate.v
+    Info (12023): Found entity 1: or_gate File: D:/CPU/or_gate.v Line: 1
+Info (12021): Found 1 design units, including 1 entities, in source file multiplier_32bit.v
+    Info (12023): Found entity 1: multiplier_32bit File: D:/CPU/multiplier_32bit.v Line: 1
+Info (12021): Found 1 design units, including 1 entities, in source file instructiondecoder.v
+    Info (12023): Found entity 1: InstructionDecoder File: D:/CPU/InstructionDecoder.v Line: 1
+Info (12021): Found 0 design units, including 0 entities, in source file half_adder.v
+Info (12021): Found 1 design units, including 1 entities, in source file full_subtractor.v
+    Info (12023): Found entity 1: full_subtractor File: D:/CPU/full_subtractor.v Line: 1
+Info (12021): Found 1 design units, including 1 entities, in source file full_adder.v
+    Info (12023): Found entity 1: full_adder File: D:/CPU/full_adder.v Line: 1
+Info (12021): Found 1 design units, including 1 entities, in source file controlunit.v
+    Info (12023): Found entity 1: ControlUnit File: D:/CPU/ControlUnit.v Line: 1
+Info (12021): Found 1 design units, including 1 entities, in source file complement_to_two.v
+    Info (12023): Found entity 1: complement_to_two File: D:/CPU/complement_to_two.v Line: 1
+Info (12021): Found 1 design units, including 1 entities, in source file cmp_32bit.v
+    Info (12023): Found entity 1: cmp_32bit File: D:/CPU/cmp_32bit.v Line: 1
+Info (12021): Found 1 design units, including 1 entities, in source file bit_compare.v
+    Info (12023): Found entity 1: bit_compare File: D:/CPU/bit_compare.v Line: 1
+Info (12021): Found 1 design units, including 1 entities, in source file ands_32bit.v
+    Info (12023): Found entity 1: ands_32bit File: D:/CPU/ands_32bit.v Line: 1
+Info (12021): Found 1 design units, including 1 entities, in source file and_gate.v
+    Info (12023): Found entity 1: and_gate File: D:/CPU/and_gate.v Line: 1
+Info (12021): Found 1 design units, including 1 entities, in source file add_with_carry_32bit.v
+    Info (12023): Found entity 1: add_with_carry_32bit File: D:/CPU/add_with_carry_32bit.v Line: 1
+Info (12021): Found 1 design units, including 1 entities, in source file add_32bit.v
+    Info (12023): Found entity 1: add_32bit File: D:/CPU/add_32bit.v Line: 1
+Info (12021): Found 1 design units, including 1 entities, in source file programcounter.v
+    Info (12023): Found entity 1: ProgramCounter File: D:/CPU/ProgramCounter.v Line: 1
+Info (12021): Found 1 design units, including 1 entities, in source file programrom.v
+    Info (12023): Found entity 1: ProgramROM File: D:/CPU/ProgramROM.v Line: 1
+Info (12021): Found 1 design units, including 1 entities, in source file registerfile.v
+    Info (12023): Found entity 1: RegisterFile File: D:/CPU/RegisterFile.v Line: 1
+Info (12021): Found 1 design units, including 1 entities, in source file alu.v
+    Info (12023): Found entity 1: alu File: D:/CPU/ALU.v Line: 1
+Info (12021): Found 1 design units, including 1 entities, in source file forwardingunit.v
+    Info (12023): Found entity 1: ForwardingUnit File: D:/CPU/ForwardingUnit.v Line: 1
+Info (12021): Found 1 design units, including 1 entities, in source file pipelineregister.v
+    Info (12023): Found entity 1: PipelineRegister File: D:/CPU/PipelineRegister.v Line: 1
+Info (12021): Found 1 design units, including 1 entities, in source file mcu.v
+    Info (12023): Found entity 1: MCU File: D:/CPU/MCU.v Line: 1
+Info (12021): Found 1 design units, including 1 entities, in source file datamemory.v
+    Info (12023): Found entity 1: DataMemory File: D:/CPU/DataMemory.v Line: 1
+Info (12021): Found 1 design units, including 1 entities, in source file rsbs_32bit.v
+    Info (12023): Found entity 1: rsbs_32bit File: D:/CPU/rsbs_32bit.v Line: 1
+Info (12021): Found 1 design units, including 1 entities, in source file subtractor_32bit.v
+    Info (12023): Found entity 1: subtractor_32bit File: D:/CPU/subtractor_32bit.v Line: 1
+Warning (10236): Verilog HDL Implicit Net warning at MCU.v(73): created implicit net for "ex_mem_reg_rd" File: D:/CPU/MCU.v Line: 73
+Warning (10236): Verilog HDL Implicit Net warning at MCU.v(74): created implicit net for "mem_wb_reg_rd" File: D:/CPU/MCU.v Line: 74
+Info (12127): Elaborating entity "MCU" for the top level hierarchy
+Warning (10036): Verilog HDL or VHDL warning at MCU.v(86): object "ex_mem_mem_read" assigned a value but never read File: D:/CPU/MCU.v Line: 86
+Warning (10036): Verilog HDL or VHDL warning at MCU.v(86): object "ex_mem_mem_write" assigned a value but never read File: D:/CPU/MCU.v Line: 86
+Warning (10036): Verilog HDL or VHDL warning at MCU.v(87): object "mem_wb_alu_result" assigned a value but never read File: D:/CPU/MCU.v Line: 87
+Info (12128): Elaborating entity "ProgramCounter" for hierarchy "ProgramCounter:PC" File: D:/CPU/MCU.v Line: 25
+Info (12128): Elaborating entity "ProgramROM" for hierarchy "ProgramROM:ROM" File: D:/CPU/MCU.v Line: 31
+Warning (10030): Net "rom.data_a" at ProgramROM.v(6) has no driver or initial value, using a default initial value '0' File: D:/CPU/ProgramROM.v Line: 6
+Warning (10030): Net "rom.waddr_a" at ProgramROM.v(6) has no driver or initial value, using a default initial value '0' File: D:/CPU/ProgramROM.v Line: 6
+Warning (10030): Net "rom.we_a" at ProgramROM.v(6) has no driver or initial value, using a default initial value '0' File: D:/CPU/ProgramROM.v Line: 6
+Info (12128): Elaborating entity "RegisterFile" for hierarchy "RegisterFile:RF" File: D:/CPU/MCU.v Line: 43
+Info (12128): Elaborating entity "alu" for hierarchy "alu:my_alu" File: D:/CPU/MCU.v Line: 59
+Warning (10240): Verilog HDL Always Construct warning at ALU.v(26): inferring latch(es) for variable "cout", which holds its previous value in one or more paths through the always construct File: D:/CPU/ALU.v Line: 26
+Info (10041): Inferred latch for "cout" at ALU.v(26) File: D:/CPU/ALU.v Line: 26
+Info (12128): Elaborating entity "add_with_carry_32bit" for hierarchy "alu:my_alu|add_with_carry_32bit:adder" File: D:/CPU/ALU.v Line: 17
+Info (12128): Elaborating entity "full_adder" for hierarchy "alu:my_alu|add_with_carry_32bit:adder|full_adder:fa0" File: D:/CPU/add_with_carry_32bit.v Line: 11
+Info (12128): Elaborating entity "ands_32bit" for hierarchy "alu:my_alu|ands_32bit:ander" File: D:/CPU/ALU.v Line: 18
+Info (12128): Elaborating entity "and_gate" for hierarchy "alu:my_alu|ands_32bit:ander|and_gate:and_loop[0].ag" File: D:/CPU/ands_32bit.v Line: 9
+Info (12128): Elaborating entity "orrs_32bit" for hierarchy "alu:my_alu|orrs_32bit:orer" File: D:/CPU/ALU.v Line: 19
+Info (12128): Elaborating entity "or_gate" for hierarchy "alu:my_alu|orrs_32bit:orer|or_gate:or_loop[0].og" File: D:/CPU/orrs_32bit.v Line: 9
+Info (12128): Elaborating entity "rsbs_32bit" for hierarchy "alu:my_alu|rsbs_32bit:rsber" File: D:/CPU/ALU.v Line: 20
+Info (12128): Elaborating entity "subtractor_32bit" for hierarchy "alu:my_alu|subtractor_32bit:subber" File: D:/CPU/ALU.v Line: 21
+Info (12128): Elaborating entity "multiplier_32bit" for hierarchy "alu:my_alu|multiplier_32bit:muler" File: D:/CPU/ALU.v Line: 22
+Warning (10240): Verilog HDL Always Construct warning at multiplier_32bit.v(10): inferring latch(es) for variable "adder_output", which holds its previous value in one or more paths through the always construct File: D:/CPU/multiplier_32bit.v Line: 10
+Info (12128): Elaborating entity "DataMemory" for hierarchy "DataMemory:DM" File: D:/CPU/MCU.v Line: 69
+Info (12128): Elaborating entity "ForwardingUnit" for hierarchy "ForwardingUnit:FU" File: D:/CPU/MCU.v Line: 81
+Warning (12241): 1 hierarchies have connectivity warnings - see the Connectivity Checks report folder
+Info (144001): Generated suppressed messages file D:/CPU/output_files/CPU.map.smsg
+Info (16010): Generating hard_block partition "hard_block:auto_generated_inst"
+    Info (16011): Adding 0 node(s), including 0 DDIO, 0 PLL, 0 transceiver and 0 LCELL
+Warning (21074): Design contains 2 input pin(s) that do not drive logic
+    Warning (15610): No output dependent on input pin "clk" File: D:/CPU/MCU.v Line: 2
+    Warning (15610): No output dependent on input pin "reset" File: D:/CPU/MCU.v Line: 4
+Info (21057): Implemented 2 device resources after synthesis - the final resource count might be different
+    Info (21058): Implemented 2 input pins
+    Info (21059): Implemented 0 output pins
+Info: Quartus Prime Analysis & Synthesis was successful. 0 errors, 15 warnings
+    Info: Peak virtual memory: 4746 megabytes
+    Info: Processing ended: Wed May 29 20:06:04 2024
+    Info: Elapsed time: 00:00:16
+    Info: Total CPU time (on all processors): 00:00:08
+
+
++------------------------------------------+
+; Analysis & Synthesis Suppressed Messages ;
++------------------------------------------+
+The suppressed messages can be found in D:/CPU/output_files/CPU.map.smsg.
+
+
